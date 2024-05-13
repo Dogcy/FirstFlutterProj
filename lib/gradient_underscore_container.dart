@@ -6,6 +6,11 @@ import 'mytext.dart';
 class GradientContainer extends StatelessWidget {
   const GradientContainer(this.color1, this.color2, this.color3, {super.key});
 
+  const GradientContainer.cc({super.key})
+      : color1 = Colors.deepPurple,
+        color2 = Colors.green,
+        color3 = Colors.red;
+
   final Color color1;
   final Color color2;
   final Color color3;
@@ -15,17 +20,12 @@ class GradientContainer extends StatelessWidget {
     Widget x = Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [color1, color2,color3],
+          colors: [color1, color2, color3],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
       ),
-      child: const Center(
-        child: MyText1(
-          'fugadck ',
-          str2: 'gg',
-        ),
-      ),
+      child: const Center(child: MyText1('fuck',str2: '  tt',)),
     );
     return x;
   }
