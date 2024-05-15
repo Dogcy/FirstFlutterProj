@@ -10,7 +10,8 @@ class MyText1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       str + str2,
-      style: const TextStyle(color: Colors.blue),
+      style: const TextStyle(color: Colors.blue,fontSize: 28),
+
     );
   }
 }
