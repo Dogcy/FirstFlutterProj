@@ -6,5 +6,3 @@ void main() {
   );
 }
 
-// decoration 裝飾ｌ
-// gradient 坡度ｌ
