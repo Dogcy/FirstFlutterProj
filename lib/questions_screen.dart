@@ -30,7 +30,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             ),
             SizedBox(height: 30),
 
-            ...currentQuestion.answers.map((item) {
+            ...currentQuestion.getShuffledAnswers().map((item) {
               return AnswerButton(item, () {
                 print('Index: $index, Item: $item');
                 index++;
