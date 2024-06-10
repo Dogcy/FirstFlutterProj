@@ -36,19 +36,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30),
-
             ...currentQuestion.getShuffledAnswers().map((item) {
               return AnswerButton(item, () {
                 answerQuestion();
-                print('Index: $index, Item: $item');
-                index++;
               });
             }),
-            // AnswerButton('Awswer1', () {
-            //   print('test');
-            // }),
-            // AnswerButton('Awswer2', () {}),
-            // AnswerButton('Awswer3', () {}),
           ],
         ),
       ),
