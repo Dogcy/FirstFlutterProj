@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:practise_project/quiz.dart';
+
 
 void main() {
   runApp(
-    const MaterialApp(),
+    const  Quiz()
   );
 }
-
-// decoration 裝飾ｌ
-// gradient 坡度ｌ
