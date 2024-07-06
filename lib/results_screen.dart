@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:practise_project/data/questions.dart';
+
+import 'package:practise_project/questions_summary.dart';
+
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({required this.chosenAnswers, super.key});
 
@@ -10,10 +13,10 @@ class ResultsScreen extends StatelessWidget {
 
     for (int i = 0; i < chosenAnswers.length; i++) {
       summary.add({
-        'question_index' : i,
-        'question' : questions[i].text,
-        'correct_answer':questions[i].answers[0], // 這邊設定第一筆都是正確答案
-        'user_answer' : chosenAnswers[i]
+        'question_index': i,
+        'question': questions[i].text,
+        'correct_answer': questions[i].answers[0], // 這邊設定第一筆都是正確答案
+        'user_answer': chosenAnswers[i]
       });
     }
 
@@ -22,8 +25,13 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('in chosenAnswers');
-    print(chosenAnswers);
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestion = summaryData.where((data) {
+      return data['user_answer'] == data['correct_answer'];
+    }).length;
+    // print('in chosenAnswers');
+    // print(chosenAnswers);
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -31,17 +39,17 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('data'),
+            Text('you answered $numCorrectQuestion out of $numTotalQuestions question correctly'),
             const SizedBox(
               height: 30,
             ),
             const Text('List of answers and question...'),
+            QuestionsSummary(summaryData: summaryData),
             const SizedBox(
               height: 30,
             ),
             TextButton(
                 onPressed: () {
-
                   print('object');
                 },
                 child: Text('Restart Quiz'))
